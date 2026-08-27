@@ -1211,6 +1211,30 @@ button:focus-visible { outline: 3px solid var(--neon-cyan); outline-offset: 4px;
   object-fit: contain;
   filter: drop-shadow(0 10px 16px rgba(0,0,0,.6));
 }
+@keyframes fly {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(.15) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale(1) rotate(0deg);
+  }
+  78% {
+    opacity: 1;
+    transform: translate3d(calc(-50% + var(--x)), calc(-50% + var(--y)), 0) scale(.9) rotate(var(--r));
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(-50% + var(--x)), calc(-50% + var(--y)), 0) scale(.72) rotate(var(--r));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .giftObject {
+    animation-duration: 1ms;
+    animation-delay: 0s;
+  }
+}
 
 /* Locked Photo / Scan */
 .lockedPhoto {
